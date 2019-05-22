@@ -1,11 +1,11 @@
 
 function onError(error) {
-  console.log(`Error: ${error}`);
+  console.log(`My favour fb shortcut Error: ${error}`);
 }
 
 function onGot(item) {
   if (item.url) {
-    console.log("url: " + item.url);
+    //console.log("url: " + item.url);
     var url = item.url;
 
     browser.tabs.create({
@@ -13,14 +13,14 @@ function onGot(item) {
      });
 
   } else {
-    console.log("open settings");
+    //console.log("open settings");
     var settings_page = browser.runtime.openOptionsPage();
   }
 
 }
 
 function openPage() {
-  var getting = browser.storage.local.get("url");
+  var getting = browser.storage.sync.get("url");
   getting.then(onGot, onError);
 }
 

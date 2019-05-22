@@ -5,7 +5,7 @@ function saveOptions(e) {
 	  if (!link.startsWith('http://') && !link.startsWith('https://')) {
 	      link = "https://" + link;
 	  }
-	  browser.storage.local.set({
+	  browser.storage.sync.set({
 	    url: link
 	  });
 	   window.alert("Saved. You can clicking toolbar fb icon to open " + link);
@@ -21,10 +21,10 @@ function restoreOptions() {
   }
 
   function onError(error) {
-    console.log(`Error: ${error}`);
+    console.log(`My favour fb shortcut settings Error: ${error}`);
   }
 
-  var getting = browser.storage.local.get("url");
+  var getting = browser.storage.sync.get("url");
   getting.then(setCurrentChoice, onError);
 }
 

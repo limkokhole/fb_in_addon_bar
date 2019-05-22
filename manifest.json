@@ -3,7 +3,7 @@
   "description": "Add fb custom link icon in addon bar instead of extra bookmark bar",
   "manifest_version": 2,
   "name": "My favour fb shortcut",
-  "version": "1.0",
+  "version": "1.1",
 
   "background": {
     "scripts": ["background.js"]
@@ -19,6 +19,12 @@
     "page": "settings/options.html"
   },
 
-  "permissions": ["storage"]
+  "permissions": ["storage"],
+
+  "applications": {
+    "gecko": {
+      "id": "my-favour-fb-shortcut@my-favour-fb-shortcut.my-favour-fb-shortcut"
+    }
+  }
 
 }
